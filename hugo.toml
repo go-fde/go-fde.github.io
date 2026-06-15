@@ -1,0 +1,26 @@
+baseURL = "https://go-fde.github.io/"
+title = "go-fde"
+disableKinds = ["taxonomy", "term", "RSS", "sitemap", "404"]
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+# Each repo card. "blurb" is the honest one-line summary drawn from the
+# repo's own README. "role" = the format it handles. Every module is a
+# pure-Go library; there are no CLIs yet, so no "cli" type is used.
+[[params.repos]]
+  name = "fde"
+  role = "dispatcher"
+  blurb = "Unified Device interface that dispatches over the LUKS, APFS and plaintext backends, with header auto-detection (Detect / Open with fde.Auto). Layers on any io.ReaderAt + WriteAt + Closer, so it composes over backends like QCOW2."
+[[params.repos]]
+  name = "luks"
+  role = "LUKS 1/2"
+  blurb = "Read/write support for LUKS1 and LUKS2 containers: phdr and binary-superblock + JSON metadata parsing, PBKDF2 key derivation, anti-forensic split/merge, and the aes-xts-plain64 and aes-cbc-essiv:sha256 ciphers. Rarer ciphers (twofish/serpent) and hashes (sha3, blake2b) are out of scope."
+[[params.repos]]
+  name = "apfs"
+  role = "FileVault 2"
+  blurb = "Read/write support for APFS FileVault 2: the PBKDF2-SHA256 KEK, AES-KW (RFC 3394) key-bag unwrapping of the volume key, and AES-XTS per-512-byte-sector block encryption."
+[[params.repos]]
+  name = "clear"
+  role = "passthrough"
+  blurb = "A plaintext Device that forwards all I/O straight to the underlying file or block device with no encryption, satisfying the same interface as the luks and apfs backends so fde can treat plaintext devices uniformly."
