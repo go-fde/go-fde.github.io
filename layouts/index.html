@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+{{/* Dark Reader repaints pages that already draw their own dark theme, as this one does: ask it to stand aside. */}}
+<meta name="darkreader-lock">
 <title>{{ .Site.Title }} — pure-Go full-disk encryption</title>
 <meta name="description" content="Pure-Go, cgo-free full-disk-encryption block devices: LUKS 1/2, APFS FileVault 2, and a plaintext passthrough, behind one fde.Device interface with on-disk header auto-detection. CGO_ENABLED=0.">
 <style>
