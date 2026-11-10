@@ -16,7 +16,7 @@ disableKinds = ["taxonomy", "term", "RSS", "sitemap", "404"]
 [[params.repos]]
   name = "fde"
   role = "dispatcher"
-  blurb = "Unified Device interface that dispatches over the LUKS, APFS, BitLocker and plaintext backends, with header auto-detection (Detect / Open with fde.Auto). Layers on any io.ReaderAt + WriteAt + Closer, so it composes over backends like QCOW2."
+  blurb = "Unified Device interface that dispatches over the LUKS, APFS, BitLocker, VeraCrypt and plaintext backends, with header auto-detection (Detect / Open with fde.Auto) for all but VeraCrypt, whose header is ciphertext and which is opened by name. Layers on any io.ReaderAt + WriteAt + Closer, so it composes over backends like QCOW2."
 [[params.repos]]
   name = "luks"
   role = "LUKS 1/2"
@@ -29,6 +29,10 @@ disableKinds = ["taxonomy", "term", "RSS", "sitemap", "404"]
   name = "bitlocker"
   role = "BitLocker"
   blurb = "Read-only BitLocker (Windows 7+, To Go): unlock by password, recovery password, .BEK startup key or clear key; AES-CBC with and without the Elephant diffuser and AES-XTS, 512-byte and 4 KiB sectors. The decrypted volume matches cryptsetup's bitlkOpen byte for byte on 21 Windows-made images."
+[[params.repos]]
+  name = "veracrypt"
+  role = "VeraCrypt"
+  blurb = "Read-only VeraCrypt and TrueCrypt: AES, Twofish and AES-Twofish in XTS; PBKDF2 with SHA-512, SHA-256, BLAKE2s or RIPEMD-160, and Argon2id; PIM, keyfiles, hidden volumes and backup headers. Opens the 35 VeraCrypt- and TrueCrypt-made volumes of cryptsetup's corpus that use these primitives. Serpent, Camellia and Kuznyechik are not supported yet."
 [[params.repos]]
   name = "clear"
   role = "passthrough"
