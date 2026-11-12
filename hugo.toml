@@ -32,7 +32,11 @@ disableKinds = ["taxonomy", "term", "RSS", "sitemap", "404"]
 [[params.repos]]
   name = "veracrypt"
   role = "VeraCrypt"
-  blurb = "Read-only VeraCrypt and TrueCrypt: every XTS cipher and cascade VeraCrypt offers (AES, Camellia, Kuznyechik, Serpent, Twofish and ten cascades); PBKDF2 with SHA-512, SHA-256, BLAKE2s or RIPEMD-160, and Argon2id; PIM, keyfiles, hidden volumes and backup headers. Opens the 59 VeraCrypt- and TrueCrypt-made volumes of cryptsetup's corpus that use these primitives. The Whirlpool and Streebog KDFs are not supported yet."
+  blurb = "Read-only VeraCrypt and TrueCrypt: every XTS cipher and cascade VeraCrypt offers (AES, Camellia, Kuznyechik, Serpent, Twofish and ten cascades); every non-boot KDF (PBKDF2 with SHA-512, SHA-256, BLAKE2s, RIPEMD-160, Whirlpool or Streebog-512, and Argon2id); PIM, keyfiles, hidden volumes and backup headers. Opens all 62 XTS volumes of cryptsetup's VeraCrypt and TrueCrypt corpus; the 28 LRW and CBC ones are refused."
+[[params.repos]]
+  name = "zed"
+  role = "ZED! archives"
+  blurb = "Read-only Prim'X ZED! .zed archives for password users: MS-CFB container, PKCS#12 key derivation (SHA-1 and SHA-256), AES-CBC in the STREAM and CTS modes, zlib. Every test vector of the 2017 format document passes, and one ZED! Free 2024.4 container opens. RSA users and writing are not supported."
 [[params.repos]]
   name = "clear"
   role = "passthrough"
