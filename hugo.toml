@@ -32,7 +32,7 @@ disableKinds = ["taxonomy", "term", "RSS", "sitemap", "404"]
 [[params.repos]]
   name = "veracrypt"
   role = "VeraCrypt"
-  blurb = "Read-only VeraCrypt and TrueCrypt: every XTS cipher and cascade VeraCrypt offers (AES, Camellia, Kuznyechik, Serpent, Twofish and ten cascades); every non-boot KDF (PBKDF2 with SHA-512, SHA-256, BLAKE2s, RIPEMD-160, Whirlpool or Streebog-512, and Argon2id); PIM, keyfiles, hidden volumes and backup headers. Opens all 62 XTS volumes of cryptsetup's VeraCrypt and TrueCrypt corpus; the 28 LRW and CBC ones are refused."
+  blurb = "Read-only VeraCrypt and TrueCrypt: every XTS cipher and cascade VeraCrypt offers (AES, Camellia, Kuznyechik, Serpent, Twofish and ten cascades); every KDF, boot rows included (PBKDF2 with SHA-512, SHA-256, BLAKE2s, RIPEMD-160, Whirlpool or Streebog-512, and Argon2id); PIM, keyfiles, hidden volumes, backup headers and system encryption (an encrypted boot drive or system partition, not a hidden operating system). Opens all 65 XTS volumes of cryptsetup's VeraCrypt and TrueCrypt corpus; the 28 LRW and CBC ones are refused."
 [[params.repos]]
   name = "zed"
   role = "ZED! archives"
