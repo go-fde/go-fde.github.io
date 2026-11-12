@@ -36,7 +36,7 @@ disableKinds = ["taxonomy", "term", "RSS", "sitemap", "404"]
 [[params.repos]]
   name = "zed"
   role = "ZED! archives"
-  blurb = "Read-only Prim'X ZED! .zed archives for password users: MS-CFB container, PKCS#12 key derivation (SHA-1 and SHA-256), AES-CBC in the STREAM and CTS modes, zlib. Every test vector of the 2017 format document passes, and a ZED! Free 2024.4 container (a folder and a PNG) extracts byte for byte against the original, including the per-file IV of 0200 archives. RSA users and writing are not supported."
+  blurb = "Read-only Prim'X ZED! .zed archives for password users: MS-CFB container, PKCS#12 key derivation (SHA-1 and SHA-256) or PBKDF2-HMAC-SHA-512 (ZED! Free 2026.3), AES-CBC in the STREAM and CTS modes, zlib. Every test vector of the 2017 format document passes, and ZED! Free 2024.4 and 2026.3 containers (each a folder and a PNG) extract byte for byte against the original, including the per-file IV of 0200 archives. RSA users and writing are not supported."
 [[params.repos]]
   name = "clear"
   role = "passthrough"
