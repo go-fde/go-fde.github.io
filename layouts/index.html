@@ -34,14 +34,12 @@
   <div class="hero"><div class="wrap">
     <div>
       <h1 class="head">go-fde</h1>
-      <p class="sub">Pure-Go <strong>full-disk-encryption block devices</strong> &mdash;
+      <p class="sub">{{ if partial "mantra-on.html" . }}Go{{ else }}Pure-Go{{ end }} <strong>full-disk-encryption block devices</strong> &mdash;
       <code>LUKS</code> 1/2, <code>APFS</code> FileVault&nbsp;2 and a plaintext passthrough,
       behind one <code>Device</code> interface with on-disk header auto-detection.</p>
-      <div class="cta">
-        <a class="btn btn-primary" href="https://github.com/go-fde/fde">{{ partial "icons/rocket.html" . }}Get started</a>
-        <a class="btn btn-ghost" href="https://github.com/go-fde">{{ partial "icons/github.html" . }}GitHub</a>
-      </div>
-      <div class="trust">{{ if not (partial "mantra-on.html" $) }}<span class="pill">CGO_ENABLED=0</span>{{ end }}<span class="pill">LUKS 1 &amp; 2</span><span class="pill">APFS FileVault 2</span><span class="pill">header auto-detection</span><span class="pill">reference test vectors</span></div>
+      {{/* [[params.cta]] in hugo.toml: the kit renders the row */}}
+      {{ partial "cta.html" . }}
+      <div class="trust">{{ if not (partial "mantra-on.html" $) }}{{ if not (partial "mantra-on.html" $) }}<span class="pill">CGO_ENABLED=0</span>{{ end }}{{ end }}<span class="pill">LUKS 1 &amp; 2</span><span class="pill">APFS FileVault 2</span><span class="pill">header auto-detection</span><span class="pill">reference test vectors</span></div>
     </div>
     {{ partial "hero-carousel.html" . }}
   </div></div>
