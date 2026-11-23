@@ -16,7 +16,7 @@ disableKinds = ["taxonomy", "term", "RSS", "sitemap", "404"]
 [[params.repos]]
   name = "fde"
   role = "dispatcher"
-  blurb = "Unified Device interface that dispatches over the LUKS, APFS, BitLocker, VeraCrypt and plaintext backends, with header auto-detection (Detect / Open with fde.Auto) for all but VeraCrypt, whose header is ciphertext and which is opened by name. Layers on any io.ReaderAt + WriteAt + Closer, so it composes over backends like QCOW2. Since v0.5.0 the LUKS, APFS and BitLocker opens take a WithBudget option that bounds the key-derivation work an untrusted header can ask for (default budget, Argon2 threads capped at 4; refused with ErrLimit)."
+  blurb = "Unified Device interface that dispatches over the LUKS, APFS, BitLocker, VeraCrypt and plaintext backends, with header auto-detection (Detect / Open with fde.Auto) for all but VeraCrypt, whose header is ciphertext and which is opened by name. Layers on any io.ReaderAt + WriteAt + Closer, so it composes over backends like QCOW2. Since v0.6.0 the LUKS, APFS, BitLocker and VeraCrypt opens take a WithBudget option that bounds the key-derivation work an untrusted header can ask for (default budget, Argon2 threads capped at 4; refused with ErrLimit)."
 [[params.repos]]
   name = "luks"
   role = "LUKS 1/2"
@@ -32,7 +32,7 @@ disableKinds = ["taxonomy", "term", "RSS", "sitemap", "404"]
 [[params.repos]]
   name = "veracrypt"
   role = "VeraCrypt"
-  blurb = "Reads VeraCrypt and TrueCrypt, and creates VeraCrypt volumes (v0.7.0): any cipher, cascade and PBKDF2 or Argon2id KDF, PIM, keyfiles, primary and backup headers, random fill; cryptsetup's tcryptDump and VeraCrypt's backup and restore of headers accept them. Reads every XTS cipher and cascade VeraCrypt offers (AES, Camellia, Kuznyechik, Serpent, Twofish and ten cascades); every KDF cryptsetup's tcrypt tries (PBKDF2 with SHA-512, SHA-256, BLAKE2s, RIPEMD-160, Whirlpool or Streebog-512, and Argon2id, plus the SHA-256, BLAKE2s and RIPEMD-160 boot rows for system encryption; the Streebog boot row is not supported); PIM, keyfiles, hidden volumes, backup headers and system encryption (an encrypted boot drive or system partition, not a hidden operating system). Opens all 65 XTS volumes of cryptsetup's VeraCrypt and TrueCrypt corpus; the 28 LRW and CBC ones are refused."
+  blurb = "Reads VeraCrypt and TrueCrypt, and creates VeraCrypt volumes (v0.7.0): any cipher, cascade and PBKDF2 or Argon2id KDF, PIM, keyfiles, primary and backup headers, random fill; cryptsetup's tcryptDump and VeraCrypt's backup and restore of headers accept them. Reads every XTS cipher and cascade VeraCrypt offers (AES, Camellia, Kuznyechik, Serpent, Twofish and ten cascades); every KDF cryptsetup's tcrypt tries (PBKDF2 with SHA-512, SHA-256, BLAKE2s, RIPEMD-160, Whirlpool or Streebog-512, and Argon2id, plus the SHA-256, BLAKE2s and RIPEMD-160 boot rows for system encryption; the Streebog boot row is not supported); PIM, keyfiles, hidden volumes, backup headers and system encryption (an encrypted boot drive or system partition, not a hidden operating system). Opens all 65 XTS volumes of cryptsetup's VeraCrypt and TrueCrypt corpus; the 28 LRW and CBC ones are refused. Since v0.8.0 the total key-derivation work of an open is bounded by a kdfbudget Budget (default budget; an Argon2id PIM of 2000 is refused with ErrLimit), and a PIM above VeraCrypt's own maxima is refused."
 [[params.repos]]
   name = "zed"
   role = "ZED! archives"
